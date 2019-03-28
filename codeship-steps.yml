@@ -13,6 +13,6 @@
   registry: https://241878618260.dkr.ecr.us-east-1.amazonaws.com
   dockercfg_service: awsgenerator
   tag: master
-# - name: Deploy
-#   service: deploy-agent
-#   command: rq-dashboard
+- name: Deploy
+  service: deploy-agent
+  command: rq-dashboard
