@@ -26,10 +26,8 @@ RUN python3 setup.py develop
 ENV PORT 80
 EXPOSE $PORT
 
-ENV REDIS_URL redis://redis
-ENV USERNAME rq
-ENV PASSWORD password
-ENV URL_PREFIX /
+ENV REDIS_HOST redis
+ENV REDIS_PORT 6379
 
 ENTRYPOINT ["/tini", "--", "/autoexec.sh"]
 CMD ["web"]
