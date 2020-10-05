@@ -1,5 +1,6 @@
 import os
-from setuptools import setup, find_packages
+
+from setuptools import find_packages, setup
 
 
 def get_version():
@@ -11,24 +12,26 @@ def get_version():
     raise RuntimeError('No version info found.')
 
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
 setup(
     name='rq-dashboard',
     version=get_version(),
-    url='https://github.com/eoranged/rq-dashboard',
+    url='https://github.com/Parallels/rq-dashboard',
     license='BSD',
     author='Vincent Driessen',
     author_email='vincent@3rdcloud.com',
     description='rq-dashboard is a general purpose, lightweight, web interface'
                 ' to monitor your RQ queues, jobs, and workers in realtime.',
-    long_description=__doc__,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=find_packages(exclude=('tests',)),
     include_package_data=True,
     zip_safe=False,
     platforms='any',
-    # Be specific about versions in requirements.txt and just name packages
-    # needed during run time here.
-    # See e.g. https://caremad.io/2013/07/setup-vs-requirement/
-    install_requires=['rq>=0.3.8,<1.0.0', 'Flask', 'redis', 'arrow'],
+    install_requires=['rq>=1.0', 'Flask', 'redis', 'arrow', 'redis-sentinel-url'],
     entry_points={
         'console_scripts': [
             'rq-dashboard = rq_dashboard.cli:main'
@@ -53,12 +56,10 @@ setup(
         'Operating System :: MacOS',
         'Operating System :: Unix',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Internet',
         'Topic :: Scientific/Engineering',

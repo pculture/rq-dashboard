@@ -5,4 +5,9 @@ dump.rdb
 /dist
 /build
 /.direnv
+.VScode
+.DS_Store
 ._*
+.tox/
+
+.python-version
